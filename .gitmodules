@@ -1,0 +1,3 @@
+[submodule "dependencies/Poco"]
+	path = dependencies/Poco
+	url = https://github.com/pocoproject/poco.git
