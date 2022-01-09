@@ -1,7 +1,13 @@
+# Clangd
 .cache/
 
+# VS Code
 .vscode/
 
+# Build
 build/
+cmake-build-debug/
+cmake-build-release/
 
+# Dependencies
 dependencies/*

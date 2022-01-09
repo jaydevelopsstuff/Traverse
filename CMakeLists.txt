@@ -6,13 +6,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
 set(CMAKE_CXX_EXTENSIONS 17)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17") # This fixes my clangd lmao idk why
+
 set(PocoFoundation_DIR ./dependencies/Poco/cmake-build/Poco)
 find_package(PocoFoundation REQUIRED)
 
-file(GLOB_RECURSE source ./src/*)
-add_executable(${PROJECT_NAME} ${source})
-
-set_property(TARGET ${PROJECT_NAME} PROPERTY LINKER_LANGUAGE CXX)
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
+file(GLOB_RECURSE source ./src/*.cpp)
+file(GLOB_RECURSE source_headers ./src/*.h)
+add_executable(${PROJECT_NAME} ${source} ${source_headers})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Poco::Foundation)
