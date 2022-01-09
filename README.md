@@ -2,7 +2,7 @@
 Traverse is a Minecraft proxy implementation in C++ with performance as a priority.
 
 ## Setting Up
-Traverse requires you to have CMake installed. <br> <br>
+Traverse requires you to have CMake installed. <br>
 
 1. Clone the repo
 2. Retrieve dependencies with `git submodule update --init --recursive`
