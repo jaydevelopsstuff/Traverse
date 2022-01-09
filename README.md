@@ -16,9 +16,9 @@ Build Poco <br>
 `cmake --build . --config Release` <br>
 
 ## Building
-1. In the root directory create a folder named `build`
+1. In the root directory create a folder named `build` <br>
 `mkdir build`
-2. Setup CMake inside of build
+2. Setup CMake inside of build <br>
 `cmake ..`
-3. Build the project
+3. Build the project <br>
 `cmake --build .`
