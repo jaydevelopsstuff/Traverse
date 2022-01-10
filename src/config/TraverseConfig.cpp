@@ -6,10 +6,10 @@
 using namespace Traverse;
 
 void TraverseConfig::load() {
-    if(!l_configFile.exists()) {
-        l_configFile.createFile();
+    if(!configFile.exists()) {
+        configFile.createFile();
 
-        FileOutputStream out(l_configFile.path());
+        FileOutputStream out(configFile.path());
 
         defaultConfig.stringify(out, 4);
 

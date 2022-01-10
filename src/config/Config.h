@@ -16,7 +16,7 @@ using namespace Poco::JSON;
 namespace Traverse {
     class Config {
         public:
-            Config(std::string t_filePath) : l_configFile(t_filePath) {}
+            Config(std::string t_filePath) : configFile(t_filePath) {}
 
             virtual void load();
 
@@ -28,15 +28,15 @@ namespace Traverse {
 
             template<typename T>
             T getValue(const std::string& key) const {
-                return l_jsonObject.getValue<T>(key);
+                return jsonObject.getValue<T>(key);
             }
 
             File getFile() const {
-                return l_configFile;
+                return configFile;
             }
 
         protected:
-            File l_configFile;
-            Object l_jsonObject;
+            File configFile;
+            Object jsonObject;
     };
 }

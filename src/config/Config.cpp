@@ -6,18 +6,18 @@
 using namespace Traverse;
 
 void Config::load() {
-    if(!l_configFile.exists()) throw new Exception::ConfigLoadException("Config file not found!");
+    if(!configFile.exists()) throw new Exception::ConfigLoadException("Config file not found!");
 
     Parser parser;
-    FileInputStream in(l_configFile.path());
+    FileInputStream in(configFile.path());
     
-    l_jsonObject = *parser.parse(in).extract<Object::Ptr>();
+    jsonObject = *parser.parse(in).extract<Object::Ptr>();
 }
 
 Dynamic::Var Config::get(const std::string& key) const {
-    return l_jsonObject.get(key);
+    return jsonObject.get(key);
 }
 
 Array::Ptr Config::getArray(const std::string& key) const {
-    return l_jsonObject.getArray(key);
+    return jsonObject.getArray(key);
 }
