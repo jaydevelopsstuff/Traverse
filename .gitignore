@@ -5,6 +5,7 @@
 .vscode/
 
 # Build
+run/
 build/
 cmake-build-debug/
 cmake-build-release/
