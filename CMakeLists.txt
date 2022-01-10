@@ -10,9 +10,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17") # This fixes my clangd lmao
 
 set(PocoFoundation_DIR ./dependencies/Poco/cmake-build/Poco)
 find_package(PocoFoundation REQUIRED)
+set(PocoJSON_DIR ./dependencies/Poco/cmake-build/Poco)
+find_package(PocoJSON REQUIRED)
 
 file(GLOB_RECURSE source ./src/*.cpp)
 file(GLOB_RECURSE source_headers ./src/*.h)
 add_executable(${PROJECT_NAME} ${source} ${source_headers})
 
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ./run)
+
 target_link_libraries(${PROJECT_NAME} PRIVATE Poco::Foundation)
+target_link_libraries(${PROJECT_NAME} PRIVATE Poco::JSON)
