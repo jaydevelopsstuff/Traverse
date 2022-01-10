@@ -1,9 +1,6 @@
 #pragma once
 
-#include <Poco/Logger.h>
-#include <Poco/ConsoleChannel.h>
-#include <Poco/FormattingChannel.h>
-#include <Poco/PatternFormatter.h>
+#include <Poco/Channel.h>
 
 using namespace Poco;
 
