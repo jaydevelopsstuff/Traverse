@@ -16,8 +16,10 @@ namespace Traverse {
 
             TraverseConfig() : Config("settings.json") {
                 if(defaultConfigSetup) return;
+                // Create default configuration
                 defaultConfig.set("port", 25565);
                 defaultConfig.set("max-connected", 200);
+                defaultConfig.set("network", Object().set("max-threads", 6));
                 defaultConfig.set("authentication", Object().set("online-mode", true).set("session-server", "https://sessionserver.mojang.com"));
                 defaultConfigSetup = true;
             }
@@ -30,6 +32,10 @@ namespace Traverse {
 
             u32 getMaxConnected() const {
                 return getValue<u32>("max-connected");
+            }
+
+            u32 getMaxNetworkThreads() const {
+                return getObject("authentication")->getValue<u32>("max-threads");
             }
 
             bool isOnlineMode() const {
