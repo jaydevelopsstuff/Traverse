@@ -1,6 +1,7 @@
 #include "Config.h"
 
 #include <Poco/FileStream.h>
+#include <Poco/JSON/Object.h>
 #include <Poco/JSON/Parser.h>
 
 using namespace Traverse;
@@ -20,4 +21,8 @@ Dynamic::Var Config::get(const std::string& key) const {
 
 Array::Ptr Config::getArray(const std::string& key) const {
     return jsonObject.getArray(key);
+}
+
+Object::Ptr Config::getObject(const std::string& key) const {
+    return jsonObject.getObject(key);
 }

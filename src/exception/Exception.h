@@ -8,6 +8,7 @@
 #include <string>
 
 namespace Traverse::Exception {
+    // Kind of a junk class but whatever
     class Exception : public std::exception {
 
     };
@@ -32,5 +33,7 @@ namespace Traverse::Exception {
         };
 
     // Exceptions
+    DECLARE_EXCEPTION("RuntimeException", RuntimeException, Exception)
     DECLARE_EXCEPTION("ConfigLoadException", ConfigLoadException, Exception)
+    DECLARE_EXCEPTION("NetworkException", NetworkException, Exception)
 }

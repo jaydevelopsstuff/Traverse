@@ -4,6 +4,7 @@
 
 #include "../Types.h"
 
+#include <Poco/Logger.h>
 #include <string>
 
 #include <Poco/JSON/Object.h>
@@ -17,6 +18,7 @@ namespace Traverse {
             TraverseConfig() : Config("settings.json") {
                 if(defaultConfigSetup) return;
                 // Create default configuration
+                defaultConfig.set("log-level", "INFORMATION");
                 defaultConfig.set("port", 25565);
                 defaultConfig.set("max-connected", 200);
                 defaultConfig.set("network", Object().set("max-threads", 6));
@@ -25,6 +27,10 @@ namespace Traverse {
             }
 
             void load() override;
+
+            std::string getLogLevel() const {
+                return getValue<std::string>("log-level");
+            }
 
             u16 getPort() const {
                 return getValue<u16>("port");
@@ -35,7 +41,7 @@ namespace Traverse {
             }
 
             u32 getMaxNetworkThreads() const {
-                return getObject("authentication")->getValue<u32>("max-threads");
+                return getObject("network")->getValue<u32>("max-threads");
             }
 
             bool isOnlineMode() const {
